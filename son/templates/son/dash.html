@@ -1,0 +1,79 @@
+{% extends 'son/main.html'%}
+
+{% load static %}
+
+
+{%block content%}
+
+<div class="two">
+   <div>
+       <!-- <input type="file" value="File"> -->
+       <form action="{% url 'import_xlsx' %}"  method="POST">
+          {% csrf_token %} 
+          <input type="file" class="custom-file-input" name="myfile">
+          <input  type="text" name="path"  class="path" >
+          <button  type="submit"><img src="{% static '/image/spreadsheet.png' %}" alt=""  width="20px" height="20px" style="padding-top:3px ;" ></button>
+       </form>
+   </div>
+   <div class="links">
+       <a href="{% url 'function_1' %}">function 1</a>
+       <a href="{% url 'function_2' %}">function 2</a>
+       <a href="{% url 'function_3' %}">function 3</a>
+       {% comment %} show_creance {% endcomment %}
+       <a class="show"  href="{% url 'show_creance' %}"><img src="{% static '/image/spreadsheet.png' %}" alt=""  width="20px" height="20px" style="padding-top:5px ;" ></a>
+       <a class="del" style="background-color: rgb(195, 192, 188);" href="{% url 'del_data' %}" ><img src="{% static '/image/del.png' %}" alt=""  width="20px" height="20px" style="padding-top:5px ;"></a>
+   </div>
+</div>
+
+<div class="three">
+         
+   <table>
+       <caption>Table Commane</caption>
+
+       <thead>
+         <tr> 
+            <td>Com Code</td>
+            <td>Ad Code</td>
+         </tr> 
+       </thead>
+       <tbody>
+           {% for item in Commune %}
+           <tr>
+              <td>{{item.come_code}}</td>
+              <td>{{item.ad_code}}</td>
+           </tr>
+           {% endfor %}
+           
+           
+       </tbody>
+   </table>
+   <table>
+       <caption>Table Creance</caption>
+
+       <thead>
+         <tr> 
+            <td>Refrence</td>
+            <td>Montant</td>
+            <td>   -</td>
+         </tr> 
+       </thead>
+       <tbody>
+        
+        {% for item1 in Creance %}
+           <tr>
+              {% comment %} <td>{{conter}}</td> {% endcomment %}
+              <td>{{item1.ref}}</td>
+              <td>{{item1.montant}}</td>
+              <td>Dz</td>
+           </tr>
+          
+         {% endfor %}  
+           
+           
+       </tbody>
+   </table>
+
+</div>
+
+
+{%endblock content%}

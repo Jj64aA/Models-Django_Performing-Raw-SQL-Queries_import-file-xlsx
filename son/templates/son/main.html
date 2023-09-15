@@ -1,0 +1,24 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonelXLS</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="website icon" type="png" href="{% static '/image/Sonlgaz.png' %}" >
+    
+</head>
+<body>
+{% include 'son/nav.html' %}
+{% comment %} content main  {% endcomment %}
+{% block content %}
+
+
+
+{% endblock content %}
+
+{% include 'son/footer.html' %}
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'son/main.html'%}
+
+{% load static %}
+
+
+{%block content%}
+
+<div class="three">
+    <a href="{% url 'home' %}" style="margin-top:10px ;"><img src="{% static '/image/arrow.png' %}" alt="" style="width: 40px;height: 40px;"></a>
+    <table>
+        <caption>Table Creance</caption>
+ 
+        <thead>
+          <tr> 
+             <td>Refrence</td>
+             <td>Montant</td>
+             <td>   -</td>
+          </tr> 
+        </thead>
+        <tbody>
+         {% for item1 in Creance %}
+            <tr>
+               <td>{{item1.ref}}</td>
+               <td>{{item1.montant}}</td>
+               <td>Dz</td>
+            </tr>
+          {% endfor %}  
+            
+            
+        </tbody>
+    </table>
+ 
+
+
+    
+
+</diV>
+
+{%endblock content%}

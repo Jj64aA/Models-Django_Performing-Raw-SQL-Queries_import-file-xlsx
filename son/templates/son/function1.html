@@ -1,0 +1,35 @@
+{% extends 'son/main.html'%}
+
+{% load static %}
+
+
+{%block content%}
+
+<div class="three">
+    <a href="{% url 'home' %}" style="margin-top:10px ;"><img src="{% static '/image/arrow.png' %}" alt="" style="width: 40px;height: 40px;"></a> 
+   <table>
+       <caption>Table Affiche 1 </caption>
+       <thead>
+           <tr> 
+               <td>Refrence</td>
+               <td>Montant</td>
+               <td>Ad Code</td>
+           </tr> 
+       </thead>
+       <tbody>
+           {% for item  in f1 %}    
+           <tr>
+               <td>{{item.ref_f1}}</td>
+               <td>{{item.montant_f1}}</td>
+               <td>{{item.ad_code_f1}}</td>
+            </tr>
+            {% endfor %}
+           
+         
+        </tbody>
+  </table>
+</div>
+
+
+
+{%endblock content%}
